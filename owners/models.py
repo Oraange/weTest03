@@ -1,5 +1,6 @@
 from django.db import models
 
+# Create your models here.
 class Owner(models.Model):
     name = models.CharField(max_length = 45)
     email = models.CharField(max_length = 300)
@@ -9,10 +10,10 @@ class Owner(models.Model):
         db_table = 'owners'
 
 class Dog(models.Model):
-    onewr = models.ForeignKey('Owner', on_delete=models.CASCADE)
+    owner = models.ForeignKey('Owner', on_delete = models.CASCADE)
     name = models.CharField(max_length = 45)
     age = models.IntegerField()
 
     class Meta:
         db_table = 'dogs'
-    
+
